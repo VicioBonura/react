@@ -4,23 +4,21 @@ import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-
 const componentName = process.argv[2];
 
 if (!componentName) {
-  console.error('Please provide a component name.');
+  console.error('Fornisci un nome al componente.');
   process.exit(1);
 }
 
 const componentDir = path.join(__dirname, 'src', 'components', componentName);
 
 if (fs.existsSync(componentDir)) {
-  console.error(`Component ${componentName} already exists.`);
+  console.error(`Componente ${componentName} già esistente.`);
   process.exit(1);
 }
 
 fs.mkdirSync(componentDir);
-
 const tsxContent = `import './${componentName}.css';
 
 const ${componentName} = () => {
@@ -42,4 +40,4 @@ const cssContent = `.${componentName} {
 fs.writeFileSync(path.join(componentDir, `${componentName}.tsx`), tsxContent);
 fs.writeFileSync(path.join(componentDir, `${componentName}.css`), cssContent);
 
-console.log(`Component ${componentName} created successfully.`);
+console.log(`Componente ${componentName} creato con successo.`);

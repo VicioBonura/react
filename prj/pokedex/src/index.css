@@ -1,6 +1,21 @@
+:root {
+    --primary-color: #000;
+    --primary-light-bg: #d0d0d0;
+}
+
 *, *::before, *::after {
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
 }
 
 

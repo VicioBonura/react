@@ -1,3 +1,4 @@
+import Header from "./components/Header/Header";
 import List from "./components/List/List";
 import Pagination from "./components/Pagination/Pagination";
 import usePokeApi from "./hooks/usePokeApi"
@@ -8,8 +9,8 @@ const App = () => {
   const {pokemon, page, totalPages, hasNextPage, hasPreviousPage, goToPrevPage, goToNextPage, onLimitChange} = usePokeApi(LIMIT)
 
   return (
-    <div>
-      <h1>Pokémon List</h1>
+    <div className="app--container">
+      <Header />
 
       <List pokemon={pokemon} />
 

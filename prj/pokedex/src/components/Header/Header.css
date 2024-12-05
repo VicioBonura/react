@@ -1,0 +1,10 @@
+header {
+  background: var(--primary-light-bg);
+  color: var(--primary-color);
+  padding: 1rem;
+}
+
+h1 {
+  margin: 0;
+  text-align: center;
+}

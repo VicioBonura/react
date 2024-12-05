@@ -1,3 +1,4 @@
+import "./List.css";
 import NameCard from "../NameCard/NameCard";
 import { PokemonResult } from "../../hooks/usePokeApi";
 
