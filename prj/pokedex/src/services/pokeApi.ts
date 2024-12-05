@@ -13,7 +13,7 @@ export const pokemonListApi = async ({maxResults, page} = POKEMON_LIST_API_DEFAU
     return data;
 }
 
-export const pokemonDetailApi = async (name: string) => {
+export const pokemonDetailApi = async (name?: string) => {
     if(!name) return undefined;
     const res = await fetch(`${POKEMON_API_BASE_URL}/pokemon/${name}`);
     const data = await res.json();

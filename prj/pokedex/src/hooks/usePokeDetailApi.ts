@@ -1,20 +1,5 @@
 import { useState, useEffect } from "react"
 import { pokemonDetailApi } from "../services/pokeApi";
-//definizione del tipo di risposta preparata per il frontend
-type PokemonDetailResult = {
-    name: string;
-    weight: number;
-    mainImageUrl: string;
-}
-
-//definizione del tipo di risposta fornita dall'API
-type PokemonDetailResponse = {
-    name: string;
-    weight: number;
-    sprites: {
-        front_default: string;
-    }
-}
 
 /**
  * la separazione delle due tipologie di risposta permette di astrarre la logica
@@ -30,15 +15,20 @@ const mapPokemonDetailToClient = (pokemonApiRes: PokemonDetailResponse): Pokemon
     };
 }
 
-const usePokeDetailApi = (name: string) => {
+const usePokeDetailApi = (name?: string) => {
     const [pokemonDetail, setPokemonDetail] = useState<PokemonDetailResult>();
-    const [isLoading, setIsLoading] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         setIsLoading(true);
         pokemonDetailApi(name)
             .then((data: PokemonDetailResponse) => {
                 setPokemonDetail(mapPokemonDetailToClient(data));
+            })
+            .catch(() => {
+                console.log("Error fetching pokemon detail");
+            })
+            .finally(() => {
                 setIsLoading(false);
             });
     }, [name]);

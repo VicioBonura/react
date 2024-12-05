@@ -4,6 +4,9 @@
     padding: 10px;
     box-shadow: 0 0 0px 0px #000;
     transition: all .25s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 
     &:hover {
         box-shadow: 2px 2px 0px 0px #000;
@@ -15,4 +18,8 @@
 .name-card--title {
     font-size: 1.2rem;
     font-weight: bold;
+}
+
+.name-card--image {
+    width: 26px;
 }

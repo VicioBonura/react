@@ -1,9 +1,10 @@
+import { PropsWithChildren } from 'react';
 import './Header.css';
 
-const Header = () => {
+const Header = (props: PropsWithChildren) => {
   return (
     <header>
-      <h1>Pokémon Archive</h1>
+      <h1>{props.children}</h1>
     </header>
   );
 };

@@ -1,31 +1,14 @@
-import Header from "./components/Header/Header";
-import List from "./components/List/List";
-import Pagination from "./components/Pagination/Pagination";
-import usePokeApi from "./hooks/usePokeApi"
-import "./App.css";
+import { BrowserRouter, Route, Routes } from "react-router";
+import Home from "./routes/Home";
+import Detail from "./routes/Detail";
 
 const App = () => {
-  const LIMIT = 20
-  const {pokemon, page, totalPages, hasNextPage, hasPreviousPage, goToPrevPage, goToNextPage, onLimitChange} = usePokeApi(LIMIT)
-
-  return (
-    <div className="app--container">
-      <Header />
-
-      <List pokemon={pokemon} />
-
-      <Pagination
-        goToPrevPage={goToPrevPage}
-        goToNextPage={goToNextPage}
-        hasPreviousPage={hasPreviousPage}
-        hasNextPage={hasNextPage}
-        page={page}
-        totalPages={totalPages}
-        onLimitChange={onLimitChange}
-      />
-
-    </div>
-  );
+  return <BrowserRouter>
+      <Routes>
+        <Route path={"/"} element={<Home />} />
+        <Route path={"/:name"} element={<Detail />} />
+      </Routes>
+    </BrowserRouter> 
 };
 
 export default App;

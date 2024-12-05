@@ -1,11 +1,6 @@
 import { useState, useEffect } from "react"
 import { pokemonListApi } from "../services/pokeApi";
 
-export type PokemonResult = {
-    name: string;
-    url: string;
-}
-
 const DEFAULT_MAX_RESULTS = 10
 
 const usePokeApi = (maxResults = DEFAULT_MAX_RESULTS) => {
